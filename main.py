@@ -3,7 +3,7 @@ import csv
 
 def parse(fname, letter, nc, pc):
     f = open('c:/Users/omgbe/Documents/smeta/{}.{}.csv'.format(fname, letter), 'r')
-    r = csv.reader(f,quotechar='"', delimiter=',',quoting=csv.QUOTE_ALL, skipinitialspace=True)
+    r = csv.reader(f, quotechar='"', delimiter=',',quoting=csv.QUOTE_ALL, skipinitialspace=True)
 
     a = {}
     for row in r:
@@ -42,10 +42,10 @@ def compare(fname, a, b):
 
     return c
 
-accs = [('108.51',1,5,7,14),
-        ('108.52',1,5,7,14),
-        ('108.55',1,5,7,14),
-        ('108.56',1,5,7,14),
+accs = [('108.51', 1, 5, 7, 14),
+        ('108.52', 1, 5, 7, 14),
+        ('108.55', 1, 5, 7, 14),
+        ('108.56', 1, 5, 7, 14),
         ]
 f = open('c:/Users/omgbe/Documents/smeta/108.C.csv', 'w')
 for acc in accs:

@@ -102,8 +102,14 @@ for acc in accs:
     c = compare(acc[0], a, b)
     c = fix_doubles(c)
 
-    f.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('счёт','наименование','стоимость','знач','bebebe','qa','qb'))
+    fmt = '{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'
+    f.write(fmt.format('счёт','наименование','стоимость','знач','комментарий','qa','qb','сумма'))
     for key_c in c:
-        f.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(acc[3],key_c[0], str(key_c[1]).replace('.',','), c[key_c]['qnt'], c[key_c]['comments'], c[key_c]['qa'], c[key_c]['qb']))
+        qa = c[key_c]['qa']
+        qb = c[key_c]['qa']
+        qnt = c[key_c]['qnt']
+        (name, price) = key_c
+        total = -(price * qb) if qnt == 2 else (price * qa)
+        f.write(fmt.format(acc[3],key_c[0], str(key_c[1]).replace('.',','), c[key_c]['qnt'], c[key_c]['comments'], c[key_c]['qa'], c[key_c]['qb'], total))
 
 f.close()
